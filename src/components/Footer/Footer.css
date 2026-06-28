@@ -1,0 +1,243 @@
+.lumina-footer {
+  width: 100%;
+  background-color: #1e1e1e;
+  border-top: 1px solid #2d2d2d;
+  box-sizing: border-box;
+  color: #a0a0a0;
+}
+
+.lumina-footer__container {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 64px 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+  box-sizing: border-box;
+}
+
+/* --- Brand section --- */
+.lumina-footer__brand {
+  max-width: 380px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.lumina-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.lumina-footer__logo img {
+  height: 38px;
+  width: auto;
+}
+
+.lumina-footer__tagline {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #a0a0a0;
+  margin: 0 0 32px 0;
+}
+
+/* --- Newsletter --- */
+.lumina-footer__newsletter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.lumina-footer__newsletter-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.lumina-footer__newsletter-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #858585;
+  margin: 0;
+}
+
+.lumina-footer__newsletter-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2px;
+  margin-top: 12px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lumina-footer__newsletter-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #252525;
+  outline: none;
+}
+
+.lumina-footer__newsletter-input::placeholder {
+  color: #a0a0a0;
+}
+
+.lumina-footer__newsletter-btn {
+  background: transparent;
+  border: none;
+  color: #252525;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.lumina-footer__newsletter-btn:hover {
+  transform: translateX(2px);
+}
+
+/* --- Links grid --- */
+.lumina-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 64px;
+  flex: 1;
+  max-width: 600px;
+}
+
+.lumina-footer__column {
+  text-align: left;
+}
+
+.lumina-footer__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.lumina-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lumina-footer__item {
+  position: relative;
+  padding-left: 14px;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.lumina-footer__item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #a0a0a0;
+}
+
+.lumina-footer__link {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lumina-footer__link:hover {
+  color: #ffffff;
+}
+
+/* --- Bottom row --- */
+.lumina-footer__bottom {
+  border-top: 1px solid #2d2d2d;
+}
+
+.lumina-footer__bottom-container {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.lumina-footer__copy {
+  font-size: 12px;
+  color: #858585;
+  margin: 0;
+}
+
+.lumina-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #858585;
+}
+
+.lumina-footer__legal-link {
+  color: #858585;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lumina-footer__legal-link:hover {
+  color: #ffffff;
+}
+
+.lumina-footer__legal-separator {
+  color: #444444;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1024px) {
+  .lumina-footer__container {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .lumina-footer__grid {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .lumina-footer__container {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .lumina-footer__brand {
+    max-width: 100%;
+  }
+
+  .lumina-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .lumina-footer__bottom-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 16px;
+    align-items: flex-start;
+  }
+
+  .lumina-footer__legal {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+

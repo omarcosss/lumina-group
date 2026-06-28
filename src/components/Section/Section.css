@@ -1,0 +1,55 @@
+.lumina-section {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.lumina-section__container {
+  width: 100%;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding-inline: 24px;
+  box-sizing: border-box;
+  text-align: left; /* default alignment for section content */
+}
+
+/* --- Spacing Options --- */
+.lumina-section--spacing-sm {
+  padding-block: 32px;
+}
+
+.lumina-section--spacing-md {
+  padding-block: 64px;
+}
+
+.lumina-section--spacing-lg {
+  padding-block: 96px;
+}
+
+.lumina-section--spacing-none {
+  padding-block: 0;
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+  .lumina-section--spacing-md {
+    padding-block: 40px;
+  }
+  .lumina-section--spacing-lg {
+    padding-block: 60px;
+  }
+  .lumina-section__container {
+    padding-inline: 16px;
+  }
+}
+
+/* --- Background Variants --- */
+.lumina-section--default {
+  background-color: var(--bg);
+}
+
+.lumina-section--muted {
+  background-color: var(--code-bg);
+}
+

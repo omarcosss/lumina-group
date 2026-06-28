@@ -1,0 +1,336 @@
+.lumina-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: transparent;
+  padding-top: 10px;
+  border-bottom: 1px solid transparent;
+  box-sizing: border-box;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.3s ease;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .lumina-header--scrolled {
+    background: rgba(22, 23, 29, 0.85);
+  }
+}
+
+.lumina-header__container {
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 12px 12px 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 999px;
+}
+
+.lumina-header__container--scrolled {
+  backdrop-filter: blur(27px);
+  background: linear-gradient(0deg,rgba(255, 255, 255, 0.7) 0%, rgba(240, 240, 240, 0.7) 25%, rgba(240, 240, 240, 0.7) 75%, rgba(255, 255, 255, 0.7) 100%) padding-box;
+  -webkit-box-shadow: 0px 20px 70px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 20px 70px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 20px 70px 0px rgba(0,0,0,0.1);
+}
+.lumina-header__container--scrolled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px; 
+  padding: 1px;
+  
+  background: linear-gradient(90deg,rgba(0, 0, 0, .15) 0%, rgba(196, 196, 196, .15) 20%, rgba(196, 196, 196, .15) 80%, rgba(0, 0, 0, .15) 100%),
+              linear-gradient(0deg,rgba(255, 255, 255, .7) 0%, rgba(237, 237, 237, .7) 50%, rgba(255, 255, 255, .7) 100%);
+  
+  /* MAGIC TRICK: Mask out the center so the gradient only exists on the edge */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  
+  pointer-events: none; /* Ensures it doesn't block clicks */
+}
+
+/* --- Logo --- */
+.lumina-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.lumina-header__logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+/* --- Navigation --- */
+.lumina-header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.lumina-header__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  /*gap: 28px;*/
+}
+
+.lumina-header__nav-item {
+  position: relative;
+}
+
+.lumina-header__nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85); /* White text on transparent header */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.lumina-header__nav-link:hover {
+  color: #ffffff;
+  /*background: rgba(255, 255, 255, 0.15);*/
+}
+
+/* Scrolled Nav Links */
+.lumina-header--scrolled .lumina-header__nav-link {
+  color: var(--text);
+}
+
+.lumina-header--scrolled .lumina-header__nav-link:hover {
+  color: var(--text-h);
+  background: var(--social-bg);
+}
+
+.lumina-header__chevron {
+  transition: transform 0.2s ease;
+}
+
+/* --- Dropdown Menu --- */
+.lumina-header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px) scale(0.3);
+  background:#FFFFFF;
+  -webkit-box-shadow: var(--glass-shadow);
+  -moz-box-shadow: var(--glass-shadow);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 8px;
+  list-style: none;
+  min-width: 180px;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(10px);
+  pointer-events: none;
+  transition: opacity 0.1s ease, transform 0.2s ease, visibility 0.2s, border-radius 0.1s ease, filter 0.3s ease;
+  transform-origin: top;
+}
+
+/* Dropdown visibility triggers */
+.lumina-header__nav-item--dropdown:hover .lumina-header__dropdown,
+.lumina-header__nav-item--dropdown:focus-within .lumina-header__dropdown {
+  filter: blur(0px);
+  opacity: 1;
+  border-radius: 29px;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0px) scale(1);
+}
+
+.lumina-header__nav-item--dropdown:hover .lumina-header__chevron {
+  transform: rotate(180deg);
+}
+
+.lumina-header__dropdown-item {
+  margin: 0;
+}
+
+.lumina-header__dropdown-link {
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 27px;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.lumina-header__dropdown-link:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* --- Actions --- */
+.lumina-header__actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Adapt secondary button when header is transparent vs scrolled */
+.lumina-header:not(.lumina-header--scrolled) .lumina-header__actions .lumina-btn--secondary {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.lumina-header:not(.lumina-header--scrolled) .lumina-header__actions .lumina-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+/* --- Mobile Menu Toggle --- */
+.lumina-header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.lumina-header__toggle-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* White by default at top */
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.lumina-header--scrolled .lumina-header__toggle-bar {
+  background-color: var(--text-h); /* Black when scrolled */
+}
+
+/* Mobile responsive menu */
+@media (max-width: 768px) {
+  .lumina-header__container {
+    padding: 12px 16px;
+  }
+
+  .lumina-header__toggle {
+    display: flex;
+  }
+
+  /* Hamburger transform when menu is active */
+  .lumina-header__toggle.is-active .lumina-header__toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .lumina-header__toggle.is-active .lumina-header__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .lumina-header__toggle.is-active .lumina-header__toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* When menu is active/open, force toggle bar back to black/standard text colors for contrast */
+  .lumina-header__toggle.is-active .lumina-header__toggle-bar {
+    background-color: var(--text-h) !important;
+  }
+
+  .lumina-header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 16px;
+    box-sizing: border-box;
+    display: none;
+    box-shadow: var(--shadow);
+  }
+
+  .lumina-header__nav.is-open {
+    display: block;
+  }
+
+  .lumina-header__nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .lumina-header__nav-link {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    color: var(--text) !important; /* Force standard text color inside solid mobile drawer */
+  }
+  
+  .lumina-header__nav-link:hover {
+    color: var(--text-h) !important;
+    background: var(--social-bg) !important;
+  }
+
+  .lumina-header__dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--border);
+    border-radius: 0;
+    margin-left: 12px;
+    padding-left: 12px;
+    background: transparent;
+  }
+
+  .lumina-header__actions {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 102;
+  }
+
+  /* When open, push actions inside the nav container visual flow */
+  .lumina-header__nav.is-open + .lumina-header__actions {
+    display: flex;
+    position: static;
+    padding: 16px 0 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+    justify-content: center;
+  }
+  
+  /* Reset button styles inside mobile panel to normal secondary state */
+  .lumina-header:not(.lumina-header--scrolled) .lumina-header__actions .lumina-btn--secondary {
+    color: var(--text-h);
+    border-color: var(--border);
+  }
+  .lumina-header:not(.lumina-header--scrolled) .lumina-header__actions .lumina-btn--secondary:hover {
+    background: var(--social-bg);
+    border-color: var(--text);
+  }
+}

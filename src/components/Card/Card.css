@@ -1,0 +1,35 @@
+.lumina-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 35px;
+  background-color: var(--bg);
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  background:var(--glass-card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  -webkit-box-shadow: var(--glass-shadow);
+  -moz-box-shadow: var(--glass-shadow);
+  box-shadow: var(--glass-shadow);
+}
+
+.lumina-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 35px; 
+  padding: 1px;
+  
+  background: linear-gradient(90deg,rgba(0, 0, 0, .15) 0%, rgba(196, 196, 196, .15) 20%, rgba(196, 196, 196, .15) 80%, rgba(0, 0, 0, .15) 100%),
+              linear-gradient(0deg,rgba(255, 255, 255, .7) 0%, rgba(237, 237, 237, .7) 50%, rgba(255, 255, 255, .7) 100%);
+  
+  /* MAGIC TRICK: Mask out the center so the gradient only exists on the edge */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  
+  pointer-events: none; /* Ensures it doesn't block clicks */
+}
+
