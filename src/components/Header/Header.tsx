@@ -28,6 +28,11 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  const toggleDropdown = (idx: number) => {
+    setOpenDropdown(openDropdown === idx ? null : idx);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,50 +69,55 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="lumina-header__toggle-bar" />
         </button>
 
-        {/* Center Navigation */}
-        <nav className={`lumina-header__nav ${mobileMenuOpen ? 'is-open' : ''}`}>
-          <ul className="lumina-header__nav-list">
-            {navItems.map((item, idx) => (
-              <li
-                key={idx}
-                className={`lumina-header__nav-item ${
-                  item.children ? 'lumina-header__nav-item--dropdown' : ''
-                }`}
-              >
-                {item.children ? (
-                  <>
-                    <button
-                      className="lumina-header__nav-link lumina-header__nav-link--trigger"
-                      aria-haspopup="true"
-                    >
+        {/* Mobile Menu Wrapper (uses display: contents on desktop) */}
+        <div className={`lumina-header__mobile-wrapper ${mobileMenuOpen ? 'is-open' : ''}`}>
+          {/* Center Navigation */}
+          <nav className="lumina-header__nav">
+            <ul className="lumina-header__nav-list">
+              {navItems.map((item, idx) => (
+                <li
+                  key={idx}
+                  className={`lumina-header__nav-item ${
+                    item.children ? 'lumina-header__nav-item--dropdown' : ''
+                  } ${openDropdown === idx ? 'is-expanded' : ''}`}
+                >
+                  {item.children ? (
+                    <>
+                      <button
+                        className="lumina-header__nav-link lumina-header__nav-link--trigger"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === idx}
+                        onClick={() => toggleDropdown(idx)}
+                      >
+                        {item.label}
+                      </button>
+                      <ul className="lumina-header__dropdown">
+                        {item.children.map((child, cIdx) => (
+                          <li key={cIdx} className="lumina-header__dropdown-item">
+                            <a href={child.href} className="lumina-header__dropdown-link">
+                              {child.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <a href={item.href || '#'} className="lumina-header__nav-link">
                       {item.label}
-                    </button>
-                    <ul className="lumina-header__dropdown">
-                      {item.children.map((child, cIdx) => (
-                        <li key={cIdx} className="lumina-header__dropdown-item">
-                          <a href={child.href} className="lumina-header__dropdown-link">
-                            {child.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <a href={item.href || '#'} className="lumina-header__nav-link">
-                    {item.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        {/* Right Actions */}
-        <div className={`lumina-header__actions ${mobileMenuOpen ? 'is-open' : ''}`}>
-          <Button variant="secondary" size="sm" onClick={onLoginClick}>
-            <UserIcon size={20} />
-            Área do Cliente
-          </Button>
+          {/* Right Actions */}
+          <div className="lumina-header__actions">
+            <Button variant="secondary" size="sm" onClick={onLoginClick}>
+              <UserIcon size={20} />
+              Área do Cliente
+            </Button>
+          </div>
         </div>
       </div>
     </header>

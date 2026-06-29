@@ -139,34 +139,95 @@ function App() {
       <Header logoText="LUMINA" navItems={navItems} onLoginClick={handleLogin} />
 
       {/* Hero Section */}
-      <Section variant="accent" spacing="lg" id="hero" className='pt-41.5! pb-36! -mt-18 rounded-b-4xl'>
-        <div className='absolute top-0 left-0 w-dvw h-full z-0'>
+      <Section
+        variant="accent"
+        spacing="lg"
+        id="hero"
+        className="pt-24 md:pt-32 lg:pt-41.5! pb-20 md:pb-28 lg:pb-36! -mt-18 rounded-b-4xl overflow-hidden"
+      >
+        <div className="absolute top-0 left-0 w-full h-full z-0">
           <Beams
-              beamWidth={4}
-              beamHeight={30}
-              beamNumber={20}
-              lightColor="#b2d7b8"
-              speed={1.2}
-              noiseIntensity={1.75}
-              scale={0.2}
-              rotation={30}
-            />
+            beamWidth={4}
+            beamHeight={30}
+            beamNumber={20}
+            lightColor="#b2d7b8"
+            speed={1.2}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />
         </div>
-        <div className='absolute top-0 left-0 w-dvw h-full z-0 bg-[#252525]/20' />
+      
+        <div className="absolute top-0 left-0 w-full h-full z-0 bg-[#252525]/20" />
+      
         <div className="hero-split">
-          <div className="hero-content z-1">
-            <img src={heroImg} />
-            <h1 className='text-7xl text-white font-bold text-center'>Transformamos patrimônio em legado sustentável</h1>
-            <p className='text-center text-white/70'>Consultoria de alto padrão que une precisão financeira <br /> e arquitetura consciente para quem exige excelência sem comprometer o futuro.</p>
-            <div className='flex gap-2'>
+          <div className="hero-content z-10 flex flex-col items-center px-6">
+      
+            <img
+              src={heroImg}
+              className="w-36 sm:w-44 md:w-52 lg:w-auto"
+              alt=""
+            />
+      
+            <h1 className="mt-6 text-center text-white font-bold leading-tight
+                           text-4xl
+                           sm:text-5xl
+                           md:text-6xl
+                           lg:text-7xl">
+              Transformamos patrimônio em legado sustentável
+            </h1>
+      
+            <p
+              className="mt-6 text-center text-white/70
+                         text-base
+                         sm:text-lg
+                         lg:text-xl
+                         max-w-xl
+                         lg:max-w-none"
+            >
+              Consultoria de alto padrão que une precisão financeira
+              <br className="hidden lg:block" />
+              arquitetura consciente para quem exige excelência sem
+              comprometer o futuro.
+            </p>
+      
+            <div
+              className="mt-8 flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+            >
               <Magnet padding={25} magnetStrength={8}>
-                <Button size='lg'>Agendar Consultoria Exclusiva</Button>
+                <Button size="lg" className="w-full sm:w-auto">
+                  Agendar Consultoria Exclusiva
+                </Button>
               </Magnet>
-              <Button size='lg' variant='tertiary' className='text-white/70!'>Conhecer nossos projetos</Button>
+      
+              <Button
+                size="lg"
+                variant="tertiary"
+                className="text-white/70! w-full sm:w-auto"
+              >
+                Conhecer nossos projetos
+              </Button>
             </div>
-            <span className='text-xs text-white/45 tracking-widest uppercase font-mono bg-white/5 px-3 py-1 rounded-full border border-white/10 mb-[-24px] pointer-events-none'>
+      
+            <span
+              className="mt-10 lg:mb-[-24px]
+                         text-[10px] sm:text-xs
+                         text-white/45
+                         tracking-widest
+                         uppercase
+                         font-mono
+                         bg-white/5
+                         px-3
+                         py-1
+                         rounded-full
+                         border
+                         border-white/10
+                         pointer-events-none
+                         text-center"
+            >
               Projeto Fictício • Demonstração para Portfólio
             </span>
+      
           </div>
         </div>
       </Section>
@@ -228,53 +289,110 @@ function App() {
         </div>
       </Section>
 
-      <Section variant='muted' className='relative' spacing='lg'>
+      <Section variant="muted" className="relative overflow-hidden" spacing="lg">
         <CircularText
           text="LUMINA*GROUP*"
           onHover="speedUp"
           spinDuration={20}
-          className="absolute text-accent left-40 top-10"
+          className="
+            absolute
+            text-accent
+            hidden md:block
+            left-6 lg:left-40
+            top-6 lg:top-10
+            scale-75 lg:scale-100
+          "
         />
-        <div className='flex flex-col items-end py-10 gap-12'>
-          <h2>Resultados que falam por si</h2>
-          <div className='grid grid-cols-3 gap-6 flex-1 w-full'>
-            <Card className='px-8 py-12 w-full'>
+      
+        <div className="flex flex-col items-center lg:items-end py-10 gap-12">
+          <h2 className="text-center lg:text-right">
+            Resultados que falam por si
+          </h2>
+      
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'>R$ <CountUp from={0} to={2.4} separator=',' decimalSeparator=',' duration={1} delay={0} /></span> <span className='text-secondary'>Bilhões</span></h2>
-                <p className='mt-3'>em patrimônio sob consultoria</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    R$
+                    <CountUp
+                      from={0}
+                      to={2.4}
+                      separator=","
+                      decimalSeparator=","
+                      duration={1}
+                    />
+                  </span>{" "}
+                  <span className="text-secondary">Bilhões</span>
+                </h2>
+                <p className="mt-3">em patrimônio sob consultoria</p>
               </div>
             </Card>
-            <Card className='px-8 py-12 w-full'>
+      
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'><CountUp from={0} to={47} duration={1} delay={0} /></span> <span className='text-secondary'>Projetos</span></h2>
-                <p className='mt-3'>arquitetônicos entregues</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    <CountUp from={0} to={47} duration={1} />
+                  </span>{" "}
+                  <span className="text-secondary">Projetos</span>
+                </h2>
+                <p className="mt-3">arquitetônicos entregues</p>
               </div>
             </Card>
-            <Card className='px-8 py-12 w-full'>
+      
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'><CountUp from={0} to={15} duration={1} delay={0} /></span> <span className='text-secondary'>Anos</span></h2>
-                <p className='mt-3'>de excelência e confiança</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    <CountUp from={0} to={15} duration={1} />
+                  </span>{" "}
+                  <span className="text-secondary">Anos</span>
+                </h2>
+                <p className="mt-3">de excelência e confiança</p>
               </div>
             </Card>
-            <Card className='px-8 py-12 w-full'>
+      
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'><CountUp from={0} to={98} duration={1} delay={0} /></span><span className='text-secondary'>%</span></h2>
-                <p className='mt-3'>de clientes recomendam</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    <CountUp from={0} to={98} duration={1} />
+                  </span>
+                  <span className="text-secondary">%</span>
+                </h2>
+                <p className="mt-3">de clientes recomendam</p>
               </div>
             </Card>
-            <Card className='px-8 py-12 w-full'>
+      
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'><CountUp from={0} to={12500} separator='.' duration={1} delay={0} /></span> <span className='text-secondary'>t</span></h2>
-                <p className='mt-3'>de CO₂ evitados com nossos projetos</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    <CountUp
+                      from={0}
+                      to={12500}
+                      separator="."
+                      duration={1}
+                    />
+                  </span>{" "}
+                  <span className="text-secondary">t</span>
+                </h2>
+                <p className="mt-3">de CO₂ evitados com nossos projetos</p>
               </div>
             </Card>
-            <Card className='px-8 py-12 w-full'>
+      
+            <Card className="w-full px-6 sm:px-8 py-8 sm:py-12">
               <div>
-                <h2><span className='text-accent'><CountUp from={0} to={3} duration={1} delay={0} /></span> <span className='text-secondary'>Certificações</span></h2>
-                <p className='mt-3'>LEED Platinum, WELL Gold, AQUA</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+                  <span className="text-accent">
+                    <CountUp from={0} to={3} duration={1} />
+                  </span>{" "}
+                  <span className="text-secondary">Certificações</span>
+                </h2>
+                <p className="mt-3">LEED Platinum, WELL Gold, AQUA</p>
               </div>
             </Card>
-            
           </div>
         </div>
       </Section>
@@ -283,7 +401,7 @@ function App() {
       <Section spacing="lg" container={false} className="overflow-hidden!">
         <div className="lumina-section__container flex justify-between items-center mb-12!">
           <h2>Transformações que inspiram</h2>
-          <Button variant="secondary" size="md">
+          <Button variant="secondary" size="md" className='text-wrap!'>
             Ver todos os projetos <CaretRightIcon size={20} />
           </Button>
         </div>
@@ -394,13 +512,13 @@ function App() {
               Nossos projetos arquitetônicos buscam sempre as mais altas certificações ambientais (LEED, WELL), enquanto nossa consultoria financeira prioriza ativos que demonstram compromisso genuíno com um futuro sustentável.
             </p>
           </div>
-          <Button variant="secondary" size="lg">Conhecer Nossa Política de Sustentabilidade <CaretRightIcon size={20} /></Button>
+          <Button variant="secondary" size="lg" className='text-wrap! '>Conhecer Nossa Política de Sustentabilidade <CaretRightIcon size={20} /></Button>
         </Card>
       </Section>
 
       {/* Call to Action */}
-      <Section spacing="lg" className="text-white" id='ctaSection'>
-        <div className='cta-bg'>
+      <Section spacing="lg" className="text-white overflow-hidden" id="ctaSection">
+        <div className="cta-bg">
           <Beams
             beamWidth={2}
             beamHeight={30}
@@ -412,28 +530,81 @@ function App() {
             rotation={0}
           />
         </div>
-        <div className="grid md:grid-cols-2 gap-12">
+      
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 px-6 md:px-0">
           <div>
-            <h2 className="text-5xl! font-bold text-white!">Quer transformar seu patrimônio em legado?</h2>
+            <h2 className="font-bold text-white! leading-tight text-4xl md:text-5xl!">
+              Quer transformar seu patrimônio em legado?
+            </h2>
           </div>
+      
           <div className="flex flex-col gap-8 py-3">
             <p>
-              Agende uma consultoria inicial sem compromisso. Nossa equipe de especialistas está pronta para entender seus objetivos e desenhar uma estratégia sob medida para você e sua família.
+              Agende uma consultoria inicial sem compromisso. Nossa equipe de
+              especialistas está pronta para entender seus objetivos e desenhar uma
+              estratégia sob medida para você e sua família.
             </p>
+      
             <ul className="flex flex-col gap-4">
-               <li className="flex items-center gap-3"><CheckCircleIcon size={24} className="text-primary" weight="fill" /> Análise de portfólio atual</li>
-               <li className="flex items-center gap-3"><CheckCircleIcon size={24} className="text-primary" weight="fill" /> Diagnóstico de projetos em andamento</li>
-               <li className="flex items-center gap-3"><CheckCircleIcon size={24} className="text-primary" weight="fill" /> Mapeamento de objetivos familiares</li>
+              <li className="flex items-center gap-3">
+                <CheckCircleIcon
+                  size={24}
+                  className="text-primary shrink-0"
+                  weight="fill"
+                />
+                <span>Análise de portfólio atual</span>
+              </li>
+      
+              <li className="flex items-center gap-3">
+                <CheckCircleIcon
+                  size={24}
+                  className="text-primary shrink-0"
+                  weight="fill"
+                />
+                <span>Diagnóstico de projetos em andamento</span>
+              </li>
+      
+              <li className="flex items-center gap-3">
+                <CheckCircleIcon
+                  size={24}
+                  className="text-primary shrink-0"
+                  weight="fill"
+                />
+                <span>Mapeamento de objetivos familiares</span>
+              </li>
             </ul>
-            <Button size="lg" variant='secondary' className="w-fit">Agendar Minha Consultoria</Button>
-            
+      
+            <Button
+              size="lg"
+              variant="secondary"
+              className="w-full md:w-fit"
+            >
+              Agendar Minha Consultoria
+            </Button>
+      
             <hr className="border-white/20 my-2" />
-            
+      
             <div className="flex flex-col gap-2">
-              <span className="text-sm uppercase tracking-widest mb-2 font-bold">Ou prefere conversar?</span>
-              <div className="flex gap-6">
-                <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors"><PhoneIcon size={20} /> +55 82 3XXX-XXXX</a>
-                <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors"><EnvelopeSimpleIcon size={20} /> contato@luminagroup.com.br</a>
+              <span className="text-sm uppercase tracking-widest mb-2 font-bold">
+                Ou prefere conversar?
+              </span>
+      
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <a
+                  href="#"
+                  className="flex items-center gap-2 hover:text-primary transition-colors break-all"
+                >
+                  <PhoneIcon size={20} className="shrink-0" />
+                  +55 82 3XXX-XXXX
+                </a>
+      
+                <a
+                  href="#"
+                  className="flex items-center gap-2 hover:text-primary transition-colors break-all"
+                >
+                  <EnvelopeSimpleIcon size={20} className="shrink-0" />
+                  contato@luminagroup.com.br
+                </a>
               </div>
             </div>
           </div>

@@ -220,6 +220,11 @@
   background-color: var(--text-h); /* Black when scrolled */
 }
 
+/* --- Mobile Wrapper --- */
+.lumina-header__mobile-wrapper {
+  display: contents; /* MAGIC TRICK: keeps children in grid/flex of parent */
+}
+
 /* Mobile responsive menu */
 @media (max-width: 768px) {
   .lumina-header__container {
@@ -246,7 +251,8 @@
     background-color: var(--text-h) !important;
   }
 
-  .lumina-header__nav {
+  .lumina-header__mobile-wrapper {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -256,12 +262,17 @@
     flex-direction: column;
     padding: 16px;
     box-sizing: border-box;
-    display: none;
     box-shadow: var(--shadow);
   }
 
-  .lumina-header__nav.is-open {
-    display: block;
+  .lumina-header__mobile-wrapper.is-open {
+    display: flex;
+  }
+
+  .lumina-header__nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .lumina-header__nav-list {
@@ -284,9 +295,10 @@
 
   .lumina-header__dropdown {
     position: static;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
     transform: none;
     box-shadow: none;
     border: none;
@@ -295,20 +307,17 @@
     margin-left: 12px;
     padding-left: 12px;
     background: transparent;
+    filter: none;
+  }
+
+  .lumina-header__nav-item.is-expanded .lumina-header__dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .lumina-header__actions {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    display: none;
-    padding: 16px;
-    box-sizing: border-box;
-    z-index: 102;
-  }
-
-  /* When open, push actions inside the nav container visual flow */
-  .lumina-header__nav.is-open + .lumina-header__actions {
     display: flex;
     position: static;
     padding: 16px 0 0 0;
@@ -316,7 +325,7 @@
     margin-top: 12px;
     justify-content: center;
   }
-  
+
   /* Reset button styles inside mobile panel to normal secondary state */
   .lumina-header:not(.lumina-header--scrolled) .lumina-header__actions .lumina-btn--secondary {
     color: var(--text-h);
