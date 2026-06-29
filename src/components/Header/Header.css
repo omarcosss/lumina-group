@@ -12,13 +12,6 @@
               backdrop-filter 0.3s ease;
 }
 
-
-@media (prefers-color-scheme: dark) {
-  .lumina-header--scrolled {
-    background: rgba(22, 23, 29, 0.85);
-  }
-}
-
 .lumina-header__container {
   max-width: 1126px;
   margin: 0 auto;

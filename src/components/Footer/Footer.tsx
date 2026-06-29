@@ -23,7 +23,7 @@ export interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({
   tagline = 'Transformando patrimônio em legado sustentável desde 2011.',
   columns = [],
-  copyrightText = `© 2026 Lumina Group. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX. Av. Brigadeiro Faria Lima, XXXX - São Paulo/SP`,
+  copyrightText = `© 2026 Lumina Group. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX. Av. Menino Marcelo, XXXX - Maceió/AL`,
 }) => {
   return (
     <footer className="lumina-footer">
@@ -72,7 +72,12 @@ export const Footer: React.FC<FooterProps> = ({
       {/* Bottom bar */}
       <div className="lumina-footer__bottom">
         <div className="lumina-footer__bottom-container">
-          <p className="lumina-footer__copy">{copyrightText}</p>
+          <div className="lumina-footer__bottom-info">
+            <p className="lumina-footer__copy">{copyrightText}</p>
+            <p className="lumina-footer__disclaimer" style={{ fontSize: '11px', color: '#666666', marginTop: '4px' }}>
+              Aviso: Este é um site fictício desenvolvido exclusivamente para fins de demonstração de portfólio.
+            </p>
+          </div>
           <div className="lumina-footer__legal">
             <a href="#privacy" className="lumina-footer__legal-link">
               Política de Privacidade

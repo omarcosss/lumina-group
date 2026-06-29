@@ -7,7 +7,7 @@ import { Carousel } from './components/Carousel/Carousel';
 import Beams from './components/Beams';
 import heroImg from './assets/hero-icons.svg';
 import './App.css';
-import { CaretRightIcon, LeafIcon, TreeIcon, ShareNetworkIcon, ChartLineUpIcon, KeyIcon, LockIcon, StarIcon, MedalIcon, PlantIcon, CheckCircleIcon, PhoneIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
+import { CaretRightIcon, LeafIcon, TreeIcon, ShareNetworkIcon, ChartLineUpIcon, KeyIcon, LockIcon, CheckCircleIcon, PhoneIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
 import CountUp from './components/CountUp/CountUp';
 import Magnet from './components/Magnet/Magnet';
 import CircularText from './components/CircularText/CircularText';
@@ -130,7 +130,7 @@ function App() {
   ];
 
   const handleLogin = () => {
-    alert('Login clicked! Integrate your Auth provider here.');
+    //
   };
 
   return (
@@ -159,11 +159,14 @@ function App() {
             <h1 className='text-7xl text-white font-bold text-center'>Transformamos patrimônio em legado sustentável</h1>
             <p className='text-center text-white/70'>Consultoria de alto padrão que une precisão financeira <br /> e arquitetura consciente para quem exige excelência sem comprometer o futuro.</p>
             <div className='flex gap-2'>
-              <Magnet padding={20} magnetStrength={8}>
+              <Magnet padding={25} magnetStrength={8}>
                 <Button size='lg'>Agendar Consultoria Exclusiva</Button>
               </Magnet>
               <Button size='lg' variant='tertiary' className='text-white/70!'>Conhecer nossos projetos</Button>
             </div>
+            <span className='text-xs text-white/45 tracking-widest uppercase font-mono bg-white/5 px-3 py-1 rounded-full border border-white/10 mb-[-24px] pointer-events-none'>
+              Projeto Fictício • Demonstração para Portfólio
+            </span>
           </div>
         </div>
       </Section>
@@ -181,7 +184,7 @@ function App() {
               <br/>
               Combinamos a rigidez analítica da gestão patrimonial de elite com a sensibilidade da arquitetura sustentável de luxo. O resultado? Soluções que protegem seu patrimônio enquanto preservam o que realmente importa.
             </p>
-            <Button variant="primary" size="md" onClick={() => alert('Glass details')}>
+            <Button variant="primary" size="md">
               Nossa Filosofia <CaretRightIcon size={20} />
             </Button>
           </div>
@@ -413,8 +416,8 @@ function App() {
           <div>
             <h2 className="text-5xl! font-bold text-white!">Quer transformar seu patrimônio em legado?</h2>
           </div>
-          <div className="flex flex-col gap-8">
-            <p className="text-lg">
+          <div className="flex flex-col gap-8 py-3">
+            <p>
               Agende uma consultoria inicial sem compromisso. Nossa equipe de especialistas está pronta para entender seus objetivos e desenhar uma estratégia sob medida para você e sua família.
             </p>
             <ul className="flex flex-col gap-4">
@@ -422,14 +425,14 @@ function App() {
                <li className="flex items-center gap-3"><CheckCircleIcon size={24} className="text-primary" weight="fill" /> Diagnóstico de projetos em andamento</li>
                <li className="flex items-center gap-3"><CheckCircleIcon size={24} className="text-primary" weight="fill" /> Mapeamento de objetivos familiares</li>
             </ul>
-            <Button size="lg" className="w-fit">Agendar Minha Consultoria</Button>
+            <Button size="lg" variant='secondary' className="w-fit">Agendar Minha Consultoria</Button>
             
             <hr className="border-white/20 my-2" />
             
             <div className="flex flex-col gap-2">
               <span className="text-sm uppercase tracking-widest mb-2 font-bold">Ou prefere conversar?</span>
               <div className="flex gap-6">
-                <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors"><PhoneIcon size={20} /> +55 11 3XXX-XXXX</a>
+                <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors"><PhoneIcon size={20} /> +55 82 3XXX-XXXX</a>
                 <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors"><EnvelopeSimpleIcon size={20} /> contato@luminagroup.com.br</a>
               </div>
             </div>
