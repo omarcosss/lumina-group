@@ -143,7 +143,7 @@ function App() {
         variant="accent"
         spacing="lg"
         id="hero"
-        className="pt-24 md:pt-32 lg:pt-41.5! pb-20 md:pb-28 lg:pb-36! -mt-18 rounded-b-4xl overflow-hidden"
+        className="hero-section"
       >
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <Beams
@@ -301,10 +301,11 @@ function App() {
             left-6 lg:left-40
             top-6 lg:top-10
             scale-75 lg:scale-100
+            z-0
           "
         />
       
-        <div className="flex flex-col items-center lg:items-end py-10 gap-12">
+        <div className="flex flex-col items-center lg:items-end py-10 gap-12 z-10">
           <h2 className="text-center lg:text-right">
             Resultados que falam por si
           </h2>
